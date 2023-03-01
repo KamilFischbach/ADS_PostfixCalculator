@@ -15,7 +15,7 @@ public class StackLinkedList implements StackADT
     {
         this.top=null;
     }
-    public Token pop()
+    public Token pop() throws EmptyStackException
     {
         if(top!=null)
         {
@@ -29,24 +29,15 @@ public class StackLinkedList implements StackADT
         }
     }
 
-    public void push(Token token)
+    public void push(Token token) throws IllegalArgumentException
     {
+        if (token==null)
+        {
+            throw new IllegalArgumentException("Token cannot be null.");
+        }
         Element element = new Element();
-
         element.value=token;
         element.link=top;
         top=element;
-    }
-
-    public Token peek()
-    {
-        if(top!=null)
-        {
-            return top.value;
-        }
-        else
-        {
-            throw new EmptyStackException();
-        }
     }
 }

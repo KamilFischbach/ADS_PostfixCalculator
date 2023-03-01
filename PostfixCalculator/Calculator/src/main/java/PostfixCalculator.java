@@ -9,8 +9,12 @@ public class PostfixCalculator
         stack=new StackLinkedList();
     }
 
-    public int evaluateExpression(ArrayList<Token> tokens)
+    public int evaluateExpression(ArrayList<Token> tokens) throws IllegalArgumentException
     {
+        if(tokens==null || tokens.size()==0)
+        {
+            throw new IllegalArgumentException("List of tokens cannot be null or empty.");
+        }
         tokens.forEach(t->
         {
             if(t.getClassName().equals("operand"))

@@ -1,8 +1,8 @@
+import java.util.EmptyStackException;
 import java.util.StringTokenizer;
 
 public interface StackADT
 {
-    Token pop();
-    void push(Token token);
-    Token peek();
+    Token pop() throws EmptyStackException;
+    void push(Token token) throws IllegalArgumentException;
 }

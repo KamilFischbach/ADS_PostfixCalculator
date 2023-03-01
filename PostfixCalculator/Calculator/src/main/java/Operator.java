@@ -2,12 +2,13 @@ public class Operator implements Token
 {
     private char operator;
 
-    public Operator(char c)
+    public Operator(char c) throws IllegalArgumentException
     {
         if(c =='+' || c=='-' || c=='*'  || c=='/' || c=='%')
         {
             operator=c;
         }
+        else throw new IllegalArgumentException("Invalid operator. '+,-,*,/,%' are the only valid operators.");
     }
 
     public char getOperator()
